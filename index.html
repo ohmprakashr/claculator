@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   
+    <div class="calculator">
+        <h1 class="cal">Calculator</h1>
+        <input type="text"class="display" id="d" disabled>
+        <div class="buttons">
+            <button onclick="clearDisplay()">C</button>
+            <button class="AC" onclick="deleteall()">AC</button>
+            <button onclick="appendValue('0')">0</button>
+            <button class="ope" onclick="appendValue('-')">-</button>
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button class="ope" onclick="appendValue('+')">+</button>
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button class="ope" onclick="appendValue('/')">/</button>
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button class="ope" onclick="appendValue('*')">*</button>
+            <button class="equal" onclick="calculateResult()">=</button>
+            <button class="delete" onclick="deletecal()">del</button>
+            <button onclick="appendValue('.')">.</button>
+            
+        </div>
+    </div>
+    <script>
+        function appendValue(value) {
+            document.getElementById('d').value += value;
+        }
+        function clearDisplay() {
+            document.getElementById('d').value = '';
+        }
+        function calculateResult() {
+            try {
+                document.getElementById('d').value = eval(document.getElementById('d').value);
+            } catch {
+                document.getElementById('d').value = 'Error';
+            }
+        }
+        function deletecal() {
+    const display = document.getElementById('d');
+    display.value = display.value.slice(0, -1); 
+}
+    </script>
+</body>
+</html>
